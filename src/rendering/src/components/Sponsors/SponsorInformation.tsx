@@ -3,7 +3,7 @@ import { ComponentProps } from 'lib/component-props';
 import { Default as SessionList } from '../Sessions/SessionList';
 import { GraphQLSession } from 'src/types/session';
 
-type SponsorInformationProps = ComponentProps & {
+export type SponsorInformationProps = ComponentProps & {
   fields: {
     data: {
       contextItem: {

@@ -1,7 +1,11 @@
-import { ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  ImageField,
+  withDatasourceCheck,
+  Image as JssImage,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type HeroImageProps = ComponentProps & {
+export type HeroImageProps = ComponentProps & {
   fields: {
     hero: ImageField;
   };
@@ -12,10 +16,9 @@ const HeroImage = (props: HeroImageProps): JSX.Element => {
 
   if (props.fields?.hero?.value?.src) {
     return (
-      <section
-        className={`hero-image ${sxaStyles}`}
-        style={{ backgroundImage: `url("${props.fields.hero.value.src}")` }}
-      />
+      <section className={`hero-image ${sxaStyles}`}>
+        <JssImage field={props.fields.hero} />
+      </section>
     );
   }
 

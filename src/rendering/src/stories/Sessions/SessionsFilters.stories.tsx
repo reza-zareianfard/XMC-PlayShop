@@ -1,23 +1,20 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as SessionsFilters } from '../../components/Sessions/SessionsFilters';
 
 export default {
   title: 'Components/Sessions/SessionsFilters',
   component: SessionsFilters,
-} as Meta<typeof SessionsFilters>;
+} as ComponentMeta<typeof SessionsFilters>;
 
-const Template: StoryFn<typeof SessionsFilters> = () => (
+const Template: ComponentStory<typeof SessionsFilters> = () => (
   <SessionsFilters rendering={{ componentName: '' }} params={{}} />
 );
 
-export const Default = {
-  render: Template,
-
-  args: {
-    params: {
-      name: 'SessionsFilters',
-    },
+export const Default = Template.bind({});
+Default.args = {
+  params: {
+    name: 'SessionsFilters',
   },
 };

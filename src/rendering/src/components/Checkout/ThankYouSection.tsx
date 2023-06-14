@@ -19,7 +19,10 @@ const ThankYouSection = (): JSX.Element => {
             <Link href="/account/orders">Order history</Link>
           </span>{' '}
           page at any time to check the status of your order or view order history. Or{' '}
-          <Link href="#">click here</Link> to print a copy of your receipt.
+          <Link href="#">
+            <a>click here</a>
+          </Link>{' '}
+          to print a copy of your receipt.
         </p>
       </li>
     ) : (
@@ -29,7 +32,11 @@ const ThankYouSection = (): JSX.Element => {
             <FontAwesomeIcon icon={faPrint} />
           </span>
           <p>
-            You can now <Link href="#">print a copy</Link> of your receipt.
+            You can now{' '}
+            <Link href="#">
+              <a>print a copy</a>
+            </Link>{' '}
+            of your receipt.
           </p>
         </li>
         <li>

@@ -1,15 +1,13 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import NoItemsInCartMessage from '../../components/ShopCommon/NoItemsInCartMessage';
 
 export default {
   title: 'Components/ShopCommon/NoItemsInCartMessage',
   component: NoItemsInCartMessage,
-} as Meta<typeof NoItemsInCartMessage>;
+} as ComponentMeta<typeof NoItemsInCartMessage>;
 
-const Template: StoryFn<typeof NoItemsInCartMessage> = () => <NoItemsInCartMessage />;
+const Template: ComponentStory<typeof NoItemsInCartMessage> = () => <NoItemsInCartMessage />;
 
-export const Default = {
-  render: Template,
-};
+export const Default = Template.bind({});

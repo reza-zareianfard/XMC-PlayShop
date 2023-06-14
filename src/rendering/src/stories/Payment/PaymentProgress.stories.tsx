@@ -1,42 +1,42 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as PaymentProgress } from '../../components/Payment/PaymentProgress';
 
 export default {
   title: 'Components/Payment/PaymentProgress',
   component: PaymentProgress,
-} as Meta<typeof PaymentProgress>;
+} as ComponentMeta<typeof PaymentProgress>;
 
-export const Page1 = {
-  args: {
-    fields: {
-      ActiveStep: {
-        value: 1,
-      },
+const Template: ComponentStory<typeof PaymentProgress> = (args) => <PaymentProgress {...args} />;
+
+export const Page1 = Template.bind({});
+Page1.args = {
+  fields: {
+    ActiveStep: {
+      value: 1,
     },
-    rendering: {
-      componentName: 'Rendering',
-      dataSource: '/sitecore',
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
+};
+
+export const Page2 = Template.bind({});
+Page2.args = {
+  fields: {
+    ActiveStep: {
+      value: 2,
     },
   },
 };
 
-export const Page2 = {
-  args: {
-    fields: {
-      ActiveStep: {
-        value: 2,
-      },
-    },
-  },
-};
-
-export const Page3 = {
-  args: {
-    fields: {
-      ActiveStep: {
-        value: 3,
-      },
+export const Page3 = Template.bind({});
+Page3.args = {
+  fields: {
+    ActiveStep: {
+      value: 3,
     },
   },
 };

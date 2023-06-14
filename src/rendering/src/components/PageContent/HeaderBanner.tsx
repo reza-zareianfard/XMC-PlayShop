@@ -1,7 +1,13 @@
-import { Text, Field, ImageField, withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Text,
+  Field,
+  ImageField,
+  withDatasourceCheck,
+  Image as JssImage,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
-type HeaderBannerProps = ComponentProps & {
+export type HeaderBannerProps = ComponentProps & {
   fields: {
     eyebrow: Field<string>;
     title: Field<string>;
@@ -11,14 +17,9 @@ type HeaderBannerProps = ComponentProps & {
 };
 
 const HeaderBanner = (props: HeaderBannerProps): JSX.Element => {
-  const sectionStyles = props.fields.backgroundImage?.value?.src
-    ? {
-        backgroundImage: `url("${props.fields.backgroundImage.value.src}")`,
-      }
-    : {};
-
   return (
-    <section className="section header-banner" style={sectionStyles}>
+    <section className="section header-banner">
+      <JssImage field={props.fields.backgroundImage} />
       <div className="section-content section-content-left container">
         <Text className="eyebrow" tag="p" field={props.fields.eyebrow} />
         <Text className="title" tag="h1" field={props.fields.title} />

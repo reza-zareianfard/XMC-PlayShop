@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import AddressBookForm from '../../components/Forms/AddressBookForm';
 import { formAddress } from './FormsCommon';
@@ -16,21 +16,20 @@ export default {
       </section>
     ),
   ],
-} as Meta<typeof AddressBookForm>;
+} as ComponentMeta<typeof AddressBookForm>;
 
-export const Default = {
-  args: {},
+const Template: ComponentStory<typeof AddressBookForm> = (args) => <AddressBookForm {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {};
+
+export const WithAddress = Template.bind({});
+WithAddress.args = {
+  address: formAddress,
 };
 
-export const WithAddress = {
-  args: {
-    address: formAddress,
-  },
-};
-
-export const Editing = {
-  args: {
-    address: formAddress,
-    isEditing: true,
-  },
+export const Editing = Template.bind({});
+Editing.args = {
+  address: formAddress,
+  isEditing: true,
 };

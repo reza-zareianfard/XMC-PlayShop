@@ -34,16 +34,18 @@ const SponsorsGrid = (props: SponsorsGridProps): JSX.Element => {
   const sponsors =
     props.fields?.items &&
     props.fields.items.map((sponsor, index) => (
-      <Link key={index} href={sponsor.url} passHref className="grid-item">
-        <Image
-          field={sponsor.fields.Logo}
-          alt={sponsor.fields.Name.value}
-          width={265}
-          height={265}
-        />
-        <div className="item-details">
-          <Text tag="p" field={sponsor.fields.Name} />
-        </div>
+      <Link key={index} href={sponsor.url} passHref>
+        <a className="grid-item">
+          <Image
+            field={sponsor.fields.Logo}
+            alt={sponsor.fields.Name.value}
+            width={265}
+            height={265}
+          />
+          <div className="item-details">
+            <Text tag="p" field={sponsor.fields.Name} />
+          </div>
+        </a>
       </Link>
     ));
 

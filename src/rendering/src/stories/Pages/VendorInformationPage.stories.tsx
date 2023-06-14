@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import HeaderContent from '../../components/Navigation/HeaderContent';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
@@ -19,7 +19,7 @@ import { mockLayoutData } from '../../../.storybook/preview';
 
 export default {
   title: 'Pages/Vendor Information Page',
-} as Meta<typeof VendorInformationPageHero>;
+} as ComponentMeta<typeof VendorInformationPageHero>;
 
 const vendorInformationPageHeroProps = {
   fields: {
@@ -75,7 +75,7 @@ const vendorInformationProps = {
   },
 } as VendorInformationProps;
 
-const Template: StoryFn<typeof VendorInformationPageHero> = () => {
+const Template: ComponentStory<typeof VendorInformationPageHero> = () => {
   return (
     <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
       <header>
@@ -93,7 +93,5 @@ const Template: StoryFn<typeof VendorInformationPageHero> = () => {
   );
 };
 
-export const Default = {
-  render: Template,
-  args: {},
-};
+export const Default = Template.bind({});
+Default.args = {};

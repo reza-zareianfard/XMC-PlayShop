@@ -1,9 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useMemo } from 'react';
-import {
-  ContentSearchWidgetResponseBase,
-  ContentSearchWidgetResponseFacet,
-} from '../../interfaces/contentSearch/ContentSearchWidgetResponse';
+import { ContentSearchResponseBase } from '../../interfaces/contentSearch/ContentSearchResponse';
 import connectResultsTab from '../../hocs/connectResultsTab';
 import { isContentSearchEnabled, getSearchResults } from '../../services/ContentSearchService';
 import SearchNewsResultsTab from './SearchNewsResultsTab';
@@ -110,7 +107,7 @@ const tabs = [
 const SearchResultsContainer = (props: SearchResultsContainerProps): JSX.Element => {
   const { q: keyphrase, tab } = props;
 
-  const searchResults = useQuery<ContentSearchWidgetResponseBase>([keyphrase, 'filters'], () =>
+  const searchResults = useQuery<ContentSearchResponseBase>([keyphrase, 'filters'], () =>
     getSearchResults(
       {
         entity: SESSION_SEARCH_RESULT_TYPE,
@@ -122,22 +119,9 @@ const SearchResultsContainer = (props: SearchResultsContainerProps): JSX.Element
     )
   );
 
-  const { data: { facet: topFilters = [] } = {} } = !!searchResults?.data
+  const { data: { facet: { days = {}, rooms = {} } = {} } = {} } = !!searchResults?.data
     ? searchResults
-    : { data: { facet: [] } };
-
-  const days = useMemo(
-    () =>
-      topFilters.find(({ name }) => name === 'days') ||
-      ({ value: [] } as ContentSearchWidgetResponseFacet),
-    [topFilters]
-  );
-  const rooms = useMemo(
-    () =>
-      topFilters.find(({ name }) => name === 'rooms') ||
-      ({ value: [] } as ContentSearchWidgetResponseFacet),
-    [topFilters]
-  );
+    : { data: { facet: { days: {}, rooms: {} } } };
 
   const filterOptions = useMemo<SearchFiltersProps['options']>(() => {
     return {

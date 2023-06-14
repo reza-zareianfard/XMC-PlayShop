@@ -1,12 +1,9 @@
-import { HealthcheckMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/monitoring';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-/**
- * This Next.js API route is used to handle healthz check request.
- * By default this is used only by Sitecore XM Cloud (when running as editing host),
- * but could be used in other deployment scenarios.
- */
+const robotsApi = async (_req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+  // Ensure response is text/html
 
-// Wire up the HealthcheckMiddleware handler
-const handler = new HealthcheckMiddleware().getHandler();
+  return res.status(200).send('OK');
+};
 
-export default handler;
+export default robotsApi;

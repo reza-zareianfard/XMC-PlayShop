@@ -32,7 +32,3 @@
 
 # vercel
 .vercel
-
-# DEMO TEAM CUSTOMIZATION - Extra ignored files
-/storybook-static
-# END CUSTOMIZATION

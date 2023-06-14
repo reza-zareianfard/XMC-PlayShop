@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import TrendingCategories from '../../components/Widgets/TrendingCategories';
 import { mockDiscoverData } from '../mock-discover-data';
@@ -6,8 +7,11 @@ import { mockDiscoverData } from '../mock-discover-data';
 export default {
   title: 'Components/Widgets/TrendingCategories',
   component: TrendingCategories,
-} as Meta<typeof TrendingCategories>;
+} as ComponentMeta<typeof TrendingCategories>;
 
-export const Default = {
-  args: mockDiscoverData.trendingCategoriesProps,
-};
+const Template: ComponentStory<typeof TrendingCategories> = (args) => (
+  <TrendingCategories {...args} />
+);
+
+export const Default = Template.bind({});
+Default.args = mockDiscoverData.trendingCategoriesProps;

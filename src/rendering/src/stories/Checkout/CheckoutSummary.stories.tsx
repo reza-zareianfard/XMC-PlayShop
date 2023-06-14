@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import CheckoutSummary from '../../components/Checkout/CheckoutSummary';
 import { MockStore } from '../mock-store';
@@ -8,36 +8,26 @@ import { cartSlice, cartState, loggedInAuthSlice } from './CheckoutCommon';
 export default {
   title: 'Components/Checkout/CheckoutSummary',
   component: CheckoutSummary,
-} as Meta<typeof CheckoutSummary>;
+} as ComponentMeta<typeof CheckoutSummary>;
 
-export const WithoutShippingOptionSelected = {
-  args: {
-    buttonText: 'Review order',
-  },
+const Template: ComponentStory<typeof CheckoutSummary> = (args) => <CheckoutSummary {...args} />;
 
-  decorators: [
-    (Story: StoryFn) => (
-      <MockStore sliceOrSlices={[cartSlice, loggedInAuthSlice]}>
-        <Story />
-      </MockStore>
-    ),
-  ],
+export const WithoutShippingOptionSelected = Template.bind({});
+WithoutShippingOptionSelected.args = {
+  buttonText: 'Review order',
 };
 
-export const WithFreeShippingCost = {
-  args: {
-    buttonText: 'Review order',
-  },
+WithoutShippingOptionSelected.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={[cartSlice, loggedInAuthSlice]}>
+      <Story />
+    </MockStore>
+  ),
+];
 
-  decorators: [
-    (Story: StoryFn) => (
-      <MockStore
-        sliceOrSlices={[{ name: 'ocCurrentCart', state: freeShippingState }, loggedInAuthSlice]}
-      >
-        <Story />
-      </MockStore>
-    ),
-  ],
+export const WithFreeShippingCost = Template.bind({});
+WithFreeShippingCost.args = {
+  buttonText: 'Review order',
 };
 
 const freeShippingState = {
@@ -56,20 +46,19 @@ const freeShippingState = {
   },
 };
 
-export const WithShippingCost = {
-  args: {
-    buttonText: 'Review order',
-  },
+WithFreeShippingCost.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: freeShippingState }, loggedInAuthSlice]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
 
-  decorators: [
-    (Story: StoryFn) => (
-      <MockStore
-        sliceOrSlices={[{ name: 'ocCurrentCart', state: paidShippingState }, loggedInAuthSlice]}
-      >
-        <Story />
-      </MockStore>
-    ),
-  ],
+export const WithShippingCost = Template.bind({});
+WithShippingCost.args = {
+  buttonText: 'Review order',
 };
 
 const paidShippingState = {
@@ -87,3 +76,13 @@ const paidShippingState = {
     LineItemCount: 3,
   },
 };
+
+WithShippingCost.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[{ name: 'ocCurrentCart', state: paidShippingState }, loggedInAuthSlice]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];

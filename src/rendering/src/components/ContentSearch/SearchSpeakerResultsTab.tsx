@@ -27,12 +27,10 @@ const SearchSpeakerResultsTab = (props: SearchSpeakerResultsTabProps): JSX.Eleme
       onFilterClick={props.onFilterClick}
     >
       <div className="speakers-grid container">
-        {props.items.map(speakerAdapter).map((speaker, index) => {
-          const featuredSpeakerCssClass = speaker.featured.value ? 'featured-speaker' : '';
-
-          return (
-            <Link key={index} href={speaker.url.path} passHref className="speakers-grid-speaker">
-              <div className={`speaker-image ${featuredSpeakerCssClass}`}>
+        {props.items.map(speakerAdapter).map((speaker, index) => (
+          <Link key={index} href={speaker.url.path} passHref>
+            <a className="speakers-grid-speaker">
+              <div className="speaker-image">
                 <Image
                   field={speaker.picture.jsonValue}
                   alt={speaker.name.value}
@@ -42,9 +40,9 @@ const SearchSpeakerResultsTab = (props: SearchSpeakerResultsTabProps): JSX.Eleme
               </div>
               <Text className="speaker-name" tag="p" field={speaker.name} />
               <Text tag="p" field={speaker.jobTitle} />
-            </Link>
-          );
-        })}
+            </a>
+          </Link>
+        ))}
       </div>
     </SearchResultsTab>
   );

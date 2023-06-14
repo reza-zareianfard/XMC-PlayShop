@@ -60,8 +60,10 @@ const TrendingCategories = ({
         return (
           <li key={category.id}>
             <Link href={category.url}>
-              <img src={image} alt={category.text} />
-              <h4>{category.text}</h4>
+              <a>
+                <img src={image} alt={category.text} />
+                <h4>{category.text}</h4>
+              </a>
             </Link>
           </li>
         );

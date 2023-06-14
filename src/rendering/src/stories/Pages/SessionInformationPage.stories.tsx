@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import HeaderContent from '../../components/Navigation/HeaderContent';
 import HeaderCdpMessageBar from '../../components/HeaderCdpMessageBar';
@@ -16,7 +16,7 @@ import { mockLayoutData } from '../../../.storybook/preview';
 
 export default {
   title: 'Pages/Session Information Page',
-} as Meta<typeof SessionInformation>;
+} as ComponentMeta<typeof SessionInformation>;
 
 const speaker1 = {
   fields: {
@@ -191,7 +191,7 @@ const sessionInformationProps = {
   },
 } as unknown as SessionInformationProps;
 
-const Template: StoryFn<typeof SpeakerInformationPageHero> = () => {
+const Template: ComponentStory<typeof SpeakerInformationPageHero> = () => {
   return (
     <SitecoreContext componentFactory={mockComponentFactory} layoutData={mockLayoutData}>
       <header>
@@ -208,7 +208,5 @@ const Template: StoryFn<typeof SpeakerInformationPageHero> = () => {
   );
 };
 
-export const Default = {
-  render: Template,
-  args: {},
-};
+export const Default = Template.bind({});
+Default.args = {};

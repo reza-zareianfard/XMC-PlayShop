@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import omit from 'lodash/omit';
 import { FEATURED_SORTING_OPTION, getSortingOptions } from '../helpers/ContentSearchHelper';
 import { debounceAsync } from '../helpers/Debounce';
 import { FC, useCallback, useContext, useEffect, useState } from 'react';
@@ -65,8 +66,9 @@ const connectResultsTab = ({
         // omits top filters
         return {
           ...response,
-          facet: response.facet.filter(
-            ({ name }) => !topFilters.map(({ facetId }) => facetId).includes(name)
+          facet: omit(
+            response.facet,
+            topFilters.map(({ facetId }) => facetId)
           ),
         };
       }),
@@ -129,7 +131,7 @@ const connectResultsTab = ({
         isLoading,
         isFetching,
         data: {
-          facet: facets = [],
+          facet: facets = {},
           total_item: totalItems = 0,
           sort: { choices: sortChoices = [] } = {},
           content: items = [],

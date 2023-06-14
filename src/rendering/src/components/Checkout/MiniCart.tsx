@@ -30,15 +30,15 @@ const MiniCart = ({ onNavigatingAway }: MinicartProps): JSX.Element => {
             <span> ${order.Subtotal}</span>
           </p>
           <div className="mini-cart-buttons">
-            <Link
-              href="/shop/checkout/cart"
-              className="btn-secondary-light"
-              onClick={onNavigatingAway}
-            >
-              View full cart
+            <Link href="/shop/checkout/cart">
+              <a className="btn-secondary-light" onClick={onNavigatingAway}>
+                View full cart
+              </a>
             </Link>
-            <Link href={nextStepLink} className="btn-main" onClick={onNavigatingAway}>
-              Proceed to checkout
+            <Link href={nextStepLink}>
+              <a className="btn-main" onClick={onNavigatingAway}>
+                Proceed to checkout
+              </a>
             </Link>
           </div>
         </div>

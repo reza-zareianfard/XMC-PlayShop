@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as VendorsGrid } from '../../components/Vendors/VendorsGrid';
 import { Vendor } from 'src/types/vendor';
@@ -6,7 +7,9 @@ import { Vendor } from 'src/types/vendor';
 export default {
   title: 'Components/Vendors/VendorsGrid',
   component: VendorsGrid,
-} as Meta<typeof VendorsGrid>;
+} as ComponentMeta<typeof VendorsGrid>;
+
+const Template: ComponentStory<typeof VendorsGrid> = (args) => <VendorsGrid {...args} />;
 
 const fitbit = {
   Name: 'Fitbit',
@@ -46,14 +49,13 @@ const sports = {
   url: '/vendors/test',
 } as Vendor;
 
-export const Default = {
-  args: {
-    fields: {
-      items: [fitbit, sports],
-    },
-    rendering: {
-      componentName: 'Rendering',
-      dataSource: '/sitecore',
-    },
+export const Default = Template.bind({});
+Default.args = {
+  fields: {
+    items: [fitbit, sports],
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

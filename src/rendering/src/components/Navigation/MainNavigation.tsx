@@ -46,7 +46,9 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
 
   const shopLink = isCommerceEnabled && (
     <li className="text-menu-item">
-      <Link href="/shop">Shop</Link>
+      <Link href="/shop">
+        <a>Shop</a>
+      </Link>
     </li>
   );
 
@@ -54,11 +56,13 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
     <nav className={`main-navigation ${sxaStyles}`}>
       <div className="navigation-content">
         <div className="controls-container container">
-          <Link href="/" className="logo-link">
-            <Image
-              field={props.fields.data.item.headerLogo.jsonValue}
-              alt={props.fields.data.item.headerLogo.alt}
-            />
+          <Link href="/">
+            <a className="logo-link">
+              <Image
+                field={props.fields.data.item.headerLogo.jsonValue}
+                alt={props.fields.data.item.headerLogo.alt}
+              />
+            </a>
           </Link>
           <button
             className="items-toggle"
@@ -80,14 +84,14 @@ const MainNavigation = (props: MainNavigationProps): JSX.Element => {
             {props.fields?.data?.links?.children?.results?.map((item, index) => (
               <li className="text-menu-item" key={index}>
                 <Link href={item.field?.jsonValue?.value?.href ?? '#'} prefetch={false}>
-                  {item.displayName}
+                  <a>{item.displayName}</a>
                 </Link>
               </li>
             ))}
             {shopLink}
             <li className="button-menu-item">
-              <Link href="/tickets" className="btn-main">
-                Book Tickets
+              <Link href="/tickets">
+                <a className="btn-main">Book Tickets</a>
               </Link>
             </li>
           </ul>

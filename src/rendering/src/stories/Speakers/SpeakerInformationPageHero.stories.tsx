@@ -1,11 +1,16 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as SpeakerInformationPageHero } from '../../components/Speakers/SpeakerInformationPageHero';
 
 export default {
   title: 'Components/Speakers/SpeakerInformationPageHero',
   component: SpeakerInformationPageHero,
-} as Meta<typeof SpeakerInformationPageHero>;
+} as ComponentMeta<typeof SpeakerInformationPageHero>;
+
+const Template: ComponentStory<typeof SpeakerInformationPageHero> = (args) => (
+  <SpeakerInformationPageHero {...args} />
+);
 
 const fields = {
   Name: {
@@ -41,24 +46,22 @@ const fields = {
   },
 };
 
-export const Featured = {
-  args: {
-    fields: {
-      ...fields,
-      Featured: {
-        value: true,
-      },
+export const Featured = Template.bind({});
+Featured.args = {
+  fields: {
+    ...fields,
+    Featured: {
+      value: true,
     },
   },
 };
 
-export const Regular = {
-  args: {
-    fields: {
-      ...fields,
-      Featured: {
-        value: false,
-      },
+export const Regular = Template.bind({});
+Regular.args = {
+  fields: {
+    ...fields,
+    Featured: {
+      value: false,
     },
   },
 };

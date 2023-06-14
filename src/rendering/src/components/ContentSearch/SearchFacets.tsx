@@ -13,7 +13,6 @@ type FacetValue = {
 };
 
 type Facet = {
-  name: string;
   label: string;
   value: FacetValue[];
 };
@@ -22,7 +21,7 @@ export type SearchFacetsProps = {
   onFacetValueClick?: (payload: FacetValueClickedActionPayload) => void;
   onClearFilters?: () => void;
   onFilterClick?: (payload: ContentSearchRequestFilter & { checked: boolean }) => void;
-  facets: Facet[];
+  facets: Record<string, Facet>;
   filters: ContentSearchRequestFilter[];
   className?: string;
 };
@@ -40,8 +39,8 @@ const getFacetLabel = ({ text }: FacetValue): string => {
 const SearchFacets = (props: SearchFacetsProps): JSX.Element => {
   const { filters } = useContext(SearchContext);
   const filterIds = filters.map(({ facetId }) => facetId);
+  const facetNames = Object.keys(props.facets);
   const appliedFilters = props.filters.filter(({ facetId }) => !filterIds.includes(facetId));
-  const facetsMap = Object.fromEntries(props.facets.map((facet) => [facet.name, facet]));
 
   return (
     <>
@@ -53,7 +52,7 @@ const SearchFacets = (props: SearchFacetsProps): JSX.Element => {
           </div>
           <ul className="search-facets-filters-list">
             {appliedFilters.map(({ facetId, facetValueId }) =>
-              facetsMap[facetId]?.value
+              props.facets[facetId]?.value
                 .filter(({ id }) => id === facetValueId)
                 .map((v) => (
                   <li
@@ -61,7 +60,7 @@ const SearchFacets = (props: SearchFacetsProps): JSX.Element => {
                     className="search-facets-filters-list-item"
                   >
                     <span className="search-facets-filters-list-item-text">
-                      <span>{facetsMap[facetId]?.label}</span>: {getFacetLabel(v)}
+                      <span>{props.facets[facetId]?.label}</span>: {getFacetLabel(v)}
                     </span>
                     <button
                       className="search-facets-filters-list-item-button"
@@ -85,24 +84,24 @@ const SearchFacets = (props: SearchFacetsProps): JSX.Element => {
         className="search-facets-root"
         onFacetValueClick={props.onFacetValueClick}
       >
-        {props.facets.map((f) => (
-          <div className="search-facets-root-facet" key={f.name}>
-            <AccordionFacets.Facet facetId={f.name}>
+        {facetNames.map((f) => (
+          <div className="search-facets-root-facet" key={f}>
+            <AccordionFacets.Facet facetId={f}>
               <AccordionFacets.Header className="search-facets-root-facet-header">
                 <AccordionFacets.Trigger className="search-facets-root-facet-trigger">
-                  {f.label}
+                  {props.facets[f].label}
                 </AccordionFacets.Trigger>
                 <FontAwesomeIcon icon={faChevronDown} />
               </AccordionFacets.Header>
               <AccordionFacets.Content className="search-facets-root-facet-content">
                 <AccordionFacets.ValueList className="search-facets-root-facet-list">
-                  {f.value.map((v, index) => (
+                  {props.facets[f].value.map((v, index) => (
                     <AccordionFacets.Item
                       className="search-facets-root-facet-item"
                       key={v.id}
                       selected={
                         !!props.filters.find(
-                          ({ facetId: fId, facetValueId: fvId }) => fId === f.name && fvId === v.id
+                          ({ facetId: fId, facetValueId: fvId }) => fId === f && fvId === v.id
                         )
                       }
                       {...{ index, facetValueId: v.id }}

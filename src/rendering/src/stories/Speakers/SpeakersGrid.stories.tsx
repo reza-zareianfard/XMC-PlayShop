@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as SpeakersGrid } from '../../components/Speakers/SpeakersGrid';
 import { GraphQLSpeaker } from 'src/types/speaker';
@@ -6,7 +7,9 @@ import { GraphQLSpeaker } from 'src/types/speaker';
 export default {
   title: 'Components/Speakers/SpeakersGrid',
   component: SpeakersGrid,
-} as Meta<typeof SpeakersGrid>;
+} as ComponentMeta<typeof SpeakersGrid>;
+
+const Template: ComponentStory<typeof SpeakersGrid> = (args) => <SpeakersGrid {...args} />;
 
 const speakerImage = {
   jsonValue: {
@@ -68,20 +71,19 @@ const speaker3 = {
   },
 } as GraphQLSpeaker;
 
-export const Default = {
-  args: {
-    fields: {
-      data: {
-        item: {
-          children: {
-            results: [speaker1, speaker2, speaker3],
-          },
+export const Default = Template.bind({});
+Default.args = {
+  fields: {
+    data: {
+      item: {
+        children: {
+          results: [speaker1, speaker2, speaker3],
         },
       },
     },
-    rendering: {
-      componentName: 'Rendering',
-      dataSource: '/sitecore',
-    },
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

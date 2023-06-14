@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as NewsList } from '../../components/News/NewsList';
 import { News } from 'src/types/news';
@@ -6,7 +7,9 @@ import { News } from 'src/types/news';
 export default {
   title: 'Components/News/NewsList',
   component: NewsList,
-} as Meta<typeof NewsList>;
+} as ComponentMeta<typeof NewsList>;
+
+const Template: ComponentStory<typeof NewsList> = (args) => <NewsList {...args} />;
 
 const news1 = {
   name: {
@@ -80,10 +83,9 @@ const news3 = {
   url: '/news/item',
 } as News;
 
-export const Default = {
-  args: {
-    fields: {
-      items: [news1, news2, news3],
-    },
+export const Default = Template.bind({});
+Default.args = {
+  fields: {
+    items: [news1, news2, news3],
   },
 };

@@ -30,26 +30,34 @@ const UserProfile = ({ user }: UserProfileContentProps): JSX.Element => {
       <ul className="user-profile-grid">
         <li className="user-profile-card">
           <Link href="/account/address-book">
-            <FontAwesomeIcon icon={faAddressBook} className="text-blue" />
-            <p>Address book</p>
+            <a>
+              <FontAwesomeIcon icon={faAddressBook} className="text-blue" />
+              <p>Address book</p>
+            </a>
           </Link>
         </li>
         <li className="user-profile-card">
           <Link href="/account/payment-methods">
-            <FontAwesomeIcon icon={faCreditCard} className="text-yellow" />
-            <p>Payment methods</p>
+            <a>
+              <FontAwesomeIcon icon={faCreditCard} className="text-yellow" />
+              <p>Payment methods</p>
+            </a>
           </Link>
         </li>
         <li className="user-profile-card">
           <Link href="/account/orders">
-            <FontAwesomeIcon icon={faReceipt} className="text-orange" />
-            <p>Order history</p>
+            <a>
+              <FontAwesomeIcon icon={faReceipt} className="text-orange" />
+              <p>Order history</p>
+            </a>
           </Link>
         </li>
         <li className="user-profile-card">
           <Link href="#">
-            <FontAwesomeIcon icon={faList} className="text-pink" />
-            <p>Saved lists</p>
+            <a>
+              <FontAwesomeIcon icon={faList} className="text-pink" />
+              <p>Saved lists</p>
+            </a>
           </Link>
         </li>
       </ul>

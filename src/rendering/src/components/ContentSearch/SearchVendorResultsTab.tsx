@@ -31,16 +31,18 @@ const SearchVendorResultsTab = (props: SearchVendorResultsTabProps): JSX.Element
           <div className="item-grid">
             <div className="grid-content">
               {props.items.map(vendorAdapter).map((vendor, index) => (
-                <Link key={index} href={vendor.url} passHref className="grid-item">
-                  <Image
-                    field={vendor.fields.Logo}
-                    alt={vendor.fields.Name.value}
-                    width={265}
-                    height={265}
-                  />
-                  <div className="item-details">
-                    <Text tag="p" field={vendor.fields.Name} />
-                  </div>
+                <Link key={index} href={vendor.url} passHref>
+                  <a className="grid-item">
+                    <Image
+                      field={vendor.fields.Logo}
+                      alt={vendor.fields.Name.value}
+                      width={265}
+                      height={265}
+                    />
+                    <div className="item-details">
+                      <Text tag="p" field={vendor.fields.Name} />
+                    </div>
+                  </a>
                 </Link>
               ))}
             </div>

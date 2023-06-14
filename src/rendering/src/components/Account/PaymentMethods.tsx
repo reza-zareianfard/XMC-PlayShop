@@ -76,12 +76,10 @@ const PaymentMethods = (): JSX.Element => {
                 >
                   <FontAwesomeIcon icon={faTrashAlt} />
                 </button>
-                <Link
-                  href={`/account/payment-methods/${paymentMethod.ID}`}
-                  className="payment-methods-edit"
-                  title="Edit Payment Method"
-                >
-                  <FontAwesomeIcon icon={faEdit} />
+                <Link href={`/account/payment-methods/${paymentMethod.ID}`}>
+                  <a className="payment-methods-edit" title="Edit Payment Method">
+                    <FontAwesomeIcon icon={faEdit} />
+                  </a>
                 </Link>
               </div>
             </div>
@@ -95,8 +93,8 @@ const PaymentMethods = (): JSX.Element => {
     <section className="payment-methods shop-container section">
       <div className="payment-methods-header">
         <h1>Payment methods</h1>
-        <Link href="/account/payment-methods/create" className="btn-main">
-          Add new payment method
+        <Link href="/account/payment-methods/create">
+          <a className="btn-main">Add new payment method</a>
         </Link>
       </div>
       <div className="payment-methods-grid">

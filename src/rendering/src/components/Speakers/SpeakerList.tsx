@@ -41,8 +41,8 @@ const SpeakerListItem = (speaker: Speaker): JSX.Element => {
         {company}
         {location}
         <div className="info-col-cta">
-          <Link href={speaker.url} className="btn-main">
-            Learn more
+          <Link href={speaker.url}>
+            <a className="btn-main">Learn more</a>
           </Link>
         </div>
       </div>
@@ -50,7 +50,7 @@ const SpeakerListItem = (speaker: Speaker): JSX.Element => {
   );
 };
 
-type SpeakerListProps = {
+export type SpeakerListProps = {
   speakers: Speaker[];
 };
 

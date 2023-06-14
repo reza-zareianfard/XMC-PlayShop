@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as FeaturedVendors } from '../../components/Vendors/FeaturedVendors';
 import { Vendor } from 'src/types/vendor';
@@ -6,7 +7,9 @@ import { Vendor } from 'src/types/vendor';
 export default {
   title: 'Components/Vendors/FeaturedVendors',
   component: FeaturedVendors,
-} as Meta<typeof FeaturedVendors>;
+} as ComponentMeta<typeof FeaturedVendors>;
+
+const Template: ComponentStory<typeof FeaturedVendors> = (args) => <FeaturedVendors {...args} />;
 
 const vendor = {
   Name: 'Item Name',
@@ -27,21 +30,20 @@ const vendor = {
   url: '/vendors/test',
 } as Vendor;
 
-export const Default = {
-  args: {
-    fields: {
-      Title: {
-        value: 'FEATURED VENDORS',
-      },
-      Subtitle: {
-        value:
-          'Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit.',
-      },
-      Vendors: [vendor],
+export const Default = Template.bind({});
+Default.args = {
+  fields: {
+    Title: {
+      value: 'FEATURED VENDORS',
     },
-    rendering: {
-      componentName: 'Rendering',
-      dataSource: '/sitecore',
+    Subtitle: {
+      value:
+        'Road-test the world’s most trusted sports and fitnessequipment–we’ll be welcoming 2,000 brands at this year’s PLAY! Summit.',
     },
+    Vendors: [vendor],
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

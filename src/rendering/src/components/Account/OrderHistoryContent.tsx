@@ -5,7 +5,7 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { getOrderDate } from '../../helpers/DateHelper';
 import { formatCurrency } from '../../helpers/CurrencyHelper';
 
-export interface OrderHistoryContentProps {
+interface OrderHistoryContentProps {
   orders: Order[];
 }
 
@@ -29,13 +29,15 @@ const OrderHistoryContent = ({ orders }: OrderHistoryContentProps): JSX.Element 
         return (
           <li key={order.ID}>
             <Link href={`orders/${order.ID}`}>
-              <p className={`order-status ${statusBgClass}`}>{order.Status} </p>
-              <div>
-                <p className="order-id">{order.ID}</p>
-                <p>Placed: {getOrderDate(new Date(order.DateCreated))}</p>
-                <p>Total: {formatCurrency(order.Total)}</p>
-              </div>
-              <FontAwesomeIcon icon={faEye} className="order-view" />
+              <a>
+                <p className={`order-status ${statusBgClass}`}>{order.Status} </p>
+                <div>
+                  <p className="order-id">{order.ID}</p>
+                  <p>Placed: {getOrderDate(new Date(order.DateCreated))}</p>
+                  <p>Total: {formatCurrency(order.Total)}</p>
+                </div>
+                <FontAwesomeIcon icon={faEye} className="order-view" />
+              </a>
             </Link>
           </li>
         );

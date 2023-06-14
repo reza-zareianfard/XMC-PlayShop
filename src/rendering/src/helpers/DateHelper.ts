@@ -22,7 +22,7 @@ export const getSessionTime = (timeslots: Timeslot[]): string => {
       let startTime = parseInt(
         (typeof timeslot.name === 'string' ? timeslot.name : timeslot.name.value) ?? ''
       );
-      if (!Number.isNaN(startTime)) {
+      if (startTime !== NaN) {
         if (startTime < 7) {
           startTime = startTime + 12;
         }

@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import SearchEntityTabs from '../../components/ContentSearch/SearchEntityTabs';
@@ -8,19 +8,16 @@ import { tabsProp } from '../mock-search-data';
 export default {
   title: 'Components/ContentSearch/SearchEntityTabs',
   component: SearchEntityTabs,
-} as Meta<typeof SearchEntityTabs>;
+} as ComponentMeta<typeof SearchEntityTabs>;
 
-const Template: StoryFn<typeof SearchEntityTabs> = (args) => (
+const Template: ComponentStory<typeof SearchEntityTabs> = (args) => (
   <SearchProvider keyphrase="">
     <SearchEntityTabs {...args} />
   </SearchProvider>
 );
 
-export const Default = {
-  render: Template,
-
-  args: {
-    selected: tabsProp[0].id,
-    tabs: tabsProp,
-  },
+export const Default = Template.bind({});
+Default.args = {
+  selected: tabsProp[0].id,
+  tabs: tabsProp,
 };

@@ -18,8 +18,10 @@ const RightColumn = ({
   onNavigatingAway,
 }: RightColumnProps): JSX.Element => {
   const viewAllLink = loaded && !loading && viewAllUrl && (
-    <Link href={viewAllUrl} className="view-all-link" onClick={onNavigatingAway}>
-      View all
+    <Link href={viewAllUrl}>
+      <a className="view-all-link" onClick={onNavigatingAway}>
+        View all
+      </a>
     </Link>
   );
 

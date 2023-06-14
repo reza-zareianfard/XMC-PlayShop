@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import {
   Default as SummitFeature,
@@ -8,33 +9,36 @@ import {
 export default {
   title: 'Components/PageContent/SummitFeature',
   component: SummitFeature,
-} as Meta<typeof SummitFeature>;
+} as ComponentMeta<typeof SummitFeature>;
 
-export const Default = {
-  args: {
-    fields: {
-      Title: {
-        value: 'Sports and Recreation Expo',
-      },
-      Description: {
-        value:
-          'This year’s theme is ‘Raise Your Game’ –join us over two days for a global gathering of brands, sports professionals,and innovators.',
-      },
-      Link: {
-        value: {
-          href: '/tickets',
-          text: 'Book Tickets',
-        },
-      },
-      Logo: {
-        value: {
-          src: '/assets/img/categories/hiking.jpg',
-        },
+const Template: ComponentStory<typeof SummitFeature> = (args: SummitFeatureProps) => (
+  <SummitFeature {...args} />
+);
+
+export const Default = Template.bind({});
+Default.args = {
+  fields: {
+    Title: {
+      value: 'Sports and Recreation Expo',
+    },
+    Description: {
+      value:
+        'This year’s theme is ‘Raise Your Game’ –join us over two days for a global gathering of brands, sports professionals,and innovators.',
+    },
+    Link: {
+      value: {
+        href: '/tickets',
+        text: 'Book Tickets',
       },
     },
-    rendering: {
-      componentName: 'Rendering',
-      dataSource: '/sitecore',
+    Logo: {
+      value: {
+        src: '/assets/img/categories/hiking.jpg',
+      },
     },
-  } as SummitFeatureProps,
-};
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
+  },
+} as SummitFeatureProps;

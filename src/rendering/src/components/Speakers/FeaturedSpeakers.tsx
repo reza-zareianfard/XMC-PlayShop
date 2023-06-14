@@ -57,21 +57,23 @@ const FeaturedSpeakers = (props: FeaturedSpeakersProps): JSX.Element => {
       .slice(0, getSpeakerNumberToShow(props))
       .map((speaker, index) => (
         <Link key={index} href={speaker.url.path} passHref>
-          <div className="grid-item">
-            <div className="item-image">
-              <Image
-                field={speaker.picture.jsonValue}
-                alt={speaker.name.value}
-                width={265}
-                height={265}
-                loading="lazy"
-              />
+          <a>
+            <div className="grid-item">
+              <div className="item-image">
+                <Image
+                  field={speaker.picture.jsonValue}
+                  alt={speaker.name.value}
+                  width={265}
+                  height={265}
+                  loading="lazy"
+                />
+              </div>
+              <div className="item-details">
+                <Text tag="p" className="item-title" field={speaker.name} />
+                <Text tag="p" field={speaker.jobTitle} />
+              </div>
             </div>
-            <div className="item-details">
-              <Text tag="p" className="item-title" field={speaker.name} />
-              <Text tag="p" field={speaker.jobTitle} />
-            </div>
-          </div>
+          </a>
         </Link>
       ));
 

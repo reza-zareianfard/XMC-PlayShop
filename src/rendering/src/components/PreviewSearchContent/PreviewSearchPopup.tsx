@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { ContentSearchNews } from '../../interfaces/contentSearch/ContentSearchNews';
-import { ContentSearchWidgetResponse } from '../../interfaces/contentSearch/ContentSearchWidgetResponse';
+import { ContentSearchResponse } from '../../interfaces/contentSearch/ContentSearchResponse';
 import { ContentSearchSession } from '../../interfaces/contentSearch/ContentSearchSession';
 import { ContentSearchSpeaker } from '../../interfaces/contentSearch/ContentSearchSpeaker';
 import PreviewSearchNewsList from './PreviewSearchNewsList';
@@ -10,9 +10,9 @@ import SuggestionList from './SuggestionList';
 
 type PreviewSearchPopupProps = {
   resultsUrl: string;
-  news: ContentSearchWidgetResponse<ContentSearchNews>;
-  sessions: ContentSearchWidgetResponse<ContentSearchSession>;
-  speakers: ContentSearchWidgetResponse<ContentSearchSpeaker>;
+  news: ContentSearchResponse<ContentSearchNews>;
+  sessions: ContentSearchResponse<ContentSearchSession>;
+  speakers: ContentSearchResponse<ContentSearchSpeaker>;
   close?: () => void;
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import PromoInput from '../../components/Checkout/PromoInput';
 import { MockStore } from '../mock-store';
 import { cartSlice, productCacheSlice, promotionCartSlice } from './CheckoutCommon';
@@ -7,32 +7,30 @@ import { cartSlice, productCacheSlice, promotionCartSlice } from './CheckoutComm
 export default {
   title: 'Components/Checkout/PromoInput',
   component: PromoInput,
-} as Meta<typeof PromoInput>;
+} as ComponentMeta<typeof PromoInput>;
 
-export const WithoutAppliedPromotions = {
-  args: {},
+const Template: ComponentStory<typeof PromoInput> = (args) => <PromoInput {...args} />;
 
-  decorators: [
-    (Story: StoryFn) => (
-      <MockStore sliceOrSlices={[cartSlice, productCacheSlice]}>
-        <div className="cart-details">
-          <Story />
-        </div>
-      </MockStore>
-    ),
-  ],
-};
+export const WithoutAppliedPromotions = Template.bind({});
+WithoutAppliedPromotions.args = {};
+WithoutAppliedPromotions.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={[cartSlice, productCacheSlice]}>
+      <div className="cart-details">
+        <Story />
+      </div>
+    </MockStore>
+  ),
+];
 
-export const WithAppliedPromotions = {
-  args: {},
-
-  decorators: [
-    (Story: StoryFn) => (
-      <MockStore sliceOrSlices={[promotionCartSlice, productCacheSlice]}>
-        <div className="cart-details">
-          <Story />
-        </div>
-      </MockStore>
-    ),
-  ],
-};
+export const WithAppliedPromotions = Template.bind({});
+WithAppliedPromotions.args = {};
+WithAppliedPromotions.decorators = [
+  (Story) => (
+    <MockStore sliceOrSlices={[promotionCartSlice, productCacheSlice]}>
+      <div className="cart-details">
+        <Story />
+      </div>
+    </MockStore>
+  ),
+];

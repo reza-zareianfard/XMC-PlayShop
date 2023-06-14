@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
 
 import SearchSessionResultsTab from '../../components/ContentSearch/SearchSessionResultsTab';
 import { ContentSearchSession } from '../../interfaces/contentSearch/ContentSearchSession';
@@ -7,7 +8,13 @@ import { mockSearchResultsTabCommonArgs } from './ResultsTabArgs';
 export default {
   title: 'Components/ContentSearch/SearchSessionResultsTab',
   component: SearchSessionResultsTab,
-} as Meta<typeof SearchSessionResultsTab>;
+} as ComponentMeta<typeof SearchSessionResultsTab>;
+
+const Template: ComponentStory<typeof SearchSessionResultsTab> = (args) => (
+  <SearchSessionResultsTab {...args} />
+);
+
+export const Default = Template.bind({});
 
 const items = [
   {
@@ -102,10 +109,7 @@ const items = [
     vendors: null,
   },
 ] as ContentSearchSession[];
-
-export const Default = {
-  args: {
-    ...mockSearchResultsTabCommonArgs,
-    items,
-  },
+Default.args = {
+  ...mockSearchResultsTabCommonArgs,
+  items,
 };

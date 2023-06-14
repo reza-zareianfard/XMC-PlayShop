@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as NewsGrid } from '../../components/News/NewsGrid';
 import { News } from 'src/types/news';
@@ -6,7 +7,9 @@ import { News } from 'src/types/news';
 export default {
   title: 'Components/News/NewsGrid',
   component: NewsGrid,
-} as Meta<typeof NewsGrid>;
+} as ComponentMeta<typeof NewsGrid>;
+
+const Template: ComponentStory<typeof NewsGrid> = (args) => <NewsGrid {...args} />;
 
 const news1 = {
   name: {
@@ -108,14 +111,13 @@ const news4 = {
   url: '/news/item',
 } as News;
 
-export const Default = {
-  args: {
-    fields: {
-      items: [news1, news2, news3, news4],
-    },
-    rendering: {
-      componentName: 'Rendering',
-      dataSource: '/sitecore',
-    },
+export const Default = Template.bind({});
+Default.args = {
+  fields: {
+    items: [news1, news2, news3, news4],
+  },
+  rendering: {
+    componentName: 'Rendering',
+    dataSource: '/sitecore',
   },
 };

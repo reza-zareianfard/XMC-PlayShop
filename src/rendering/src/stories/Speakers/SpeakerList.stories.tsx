@@ -1,12 +1,17 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import SpeakerList from '../../components/Speakers/SpeakerList';
+import SpeakerList, { SpeakerListProps } from '../../components/Speakers/SpeakerList';
 import { Speaker } from 'src/types/speaker';
 
 export default {
   title: 'Components/Speakers/SpeakerList',
   component: SpeakerList,
-} as Meta<typeof SpeakerList>;
+} as ComponentMeta<typeof SpeakerList>;
+
+const Template: ComponentStory<typeof SpeakerList> = (args: SpeakerListProps) => (
+  <SpeakerList {...args} />
+);
 
 const speaker1 = {
   fields: {
@@ -98,8 +103,7 @@ const speaker2 = {
   url: '/speaker/Speaker-Name',
 } as Speaker;
 
-export const Default = {
-  args: {
-    speakers: [speaker1, speaker2],
-  },
+export const Default = Template.bind({});
+Default.args = {
+  speakers: [speaker1, speaker2],
 };

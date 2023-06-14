@@ -1,6 +1,4 @@
 *
 !.gitignore
 !GraphQLIntrospectionResult.json
-# DEMO TEAM CUSTOMIZATION
 !categoriesData.ts
-# END CUSTOMIZATION

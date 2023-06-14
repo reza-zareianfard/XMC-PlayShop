@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import PanelBillingAddress from '../../components/Checkout/PanelBillingAddress';
 import { MockStore } from '../mock-store';
@@ -10,32 +10,16 @@ import { DeliveryTypes } from '../../models/ordercloud/DOrder';
 export default {
   title: 'Components/Checkout/PanelBillingAddress',
   component: PanelBillingAddress,
-} as Meta<typeof PanelBillingAddress>;
+} as ComponentMeta<typeof PanelBillingAddress>;
 
-const Template: StoryFn<typeof PanelBillingAddress> = () => (
+const Template: ComponentStory<typeof PanelBillingAddress> = () => (
   <section className="checkout-details shop-container">
     <PanelBillingAddress />
   </section>
 );
 
-export const WithSavedBillingAddress = {
-  render: Template,
-  args: {},
-
-  decorators: [
-    (Story: StoryFn) => (
-      <MockStore
-        sliceOrSlices={[
-          { name: 'ocCurrentCart', state: mockState },
-          { name: 'ocAuth', state: authState },
-          { name: 'ocAddressBook', state: addressBookState },
-        ]}
-      >
-        <Story />
-      </MockStore>
-    ),
-  ],
-};
+export const WithSavedBillingAddress = Template.bind({});
+WithSavedBillingAddress.args = {};
 
 const mockState = {
   initialized: true,
@@ -105,24 +89,22 @@ const addressBookState = {
   } as EntityState<DAddress>,
 };
 
-export const WithoutSavedBillingAddress = {
-  render: Template,
-  args: {},
+WithSavedBillingAddress.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: mockState },
+        { name: 'ocAuth', state: authState },
+        { name: 'ocAddressBook', state: addressBookState },
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
 
-  decorators: [
-    (Story: StoryFn) => (
-      <MockStore
-        sliceOrSlices={[
-          { name: 'ocCurrentCart', state: mockState2 },
-          { name: 'ocAuth', state: authState2 },
-          { name: 'ocAddressBook', state: addressBookState2 },
-        ]}
-      >
-        <Story />
-      </MockStore>
-    ),
-  ],
-};
+export const WithoutSavedBillingAddress = Template.bind({});
+WithoutSavedBillingAddress.args = {};
 
 const mockState2 = {
   initialized: true,
@@ -149,24 +131,22 @@ const addressBookState2 = {
   addresses: { ids: [], entities: {} } as EntityState<DAddress>,
 };
 
-export const WithSameBillingAsShipping = {
-  render: Template,
-  args: {},
+WithoutSavedBillingAddress.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: mockState2 },
+        { name: 'ocAuth', state: authState2 },
+        { name: 'ocAddressBook', state: addressBookState2 },
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];
 
-  decorators: [
-    (Story: StoryFn) => (
-      <MockStore
-        sliceOrSlices={[
-          { name: 'ocCurrentCart', state: mockState3 },
-          { name: 'ocAuth', state: authState3 },
-          { name: 'ocAddressBook', state: addressBookState3 },
-        ]}
-      >
-        <Story />
-      </MockStore>
-    ),
-  ],
-};
+export const WithSameBillingAsShipping = Template.bind({});
+WithSameBillingAsShipping.args = {};
 
 const mockState3 = {
   initialized: true,
@@ -237,3 +217,17 @@ const addressBookState3 = {
     },
   } as EntityState<DAddress>,
 };
+
+WithSameBillingAsShipping.decorators = [
+  (Story) => (
+    <MockStore
+      sliceOrSlices={[
+        { name: 'ocCurrentCart', state: mockState3 },
+        { name: 'ocAuth', state: authState3 },
+        { name: 'ocAddressBook', state: addressBookState3 },
+      ]}
+    >
+      <Story />
+    </MockStore>
+  ),
+];

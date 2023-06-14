@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import CheckoutAddressForm from '../../components/Forms/CheckoutAddressForm';
 import { formAddress } from './FormsCommon';
@@ -14,34 +14,33 @@ export default {
       </section>
     ),
   ],
-} as Meta<typeof CheckoutAddressForm>;
+} as ComponentMeta<typeof CheckoutAddressForm>;
 
-export const Default = {
-  args: {},
+const Template: ComponentStory<typeof CheckoutAddressForm> = (args) => (
+  <CheckoutAddressForm {...args} />
+);
+
+export const Default = Template.bind({});
+Default.args = {};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
 };
 
-export const Loading = {
-  args: {
-    loading: true,
-  },
+export const SaveToAddressBook = Template.bind({});
+SaveToAddressBook.args = {
+  showSaveToAddressBook: true,
 };
 
-export const SaveToAddressBook = {
-  args: {
-    showSaveToAddressBook: true,
-  },
+export const WithAddress = Template.bind({});
+WithAddress.args = {
+  address: formAddress,
 };
 
-export const WithAddress = {
-  args: {
-    address: formAddress,
-  },
-};
-
-export const Editing = {
-  args: {
-    address: formAddress,
-    isEditing: true,
-    showSaveToAddressBook: true,
-  },
+export const Editing = Template.bind({});
+Editing.args = {
+  address: formAddress,
+  isEditing: true,
+  showSaveToAddressBook: true,
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as Section } from '../../components/PageContent/Section';
 import { Default as SpeakersGrid, SpeakersGridProps } from '../../components/Speakers/SpeakersGrid';
@@ -8,7 +8,7 @@ import { GraphQLSpeaker } from 'src/types/speaker';
 export default {
   title: 'Components/PageContent/Section',
   component: Section,
-} as Meta<typeof Section>;
+} as ComponentMeta<typeof Section>;
 
 const speakerImage = {
   jsonValue: {
@@ -47,128 +47,113 @@ const speakerProps = {
   },
 } as SpeakersGridProps;
 
-const Template: StoryFn<typeof Section> = (args) => (
+const Template: ComponentStory<typeof Section> = (args) => (
   <Section {...args}>
     <SpeakersGrid {...speakerProps} />
   </Section>
 );
 
-export const Light = {
-  render: Template,
-
-  args: {
-    params: {
-      styles: 'section-light',
+export const Light = Template.bind({});
+Light.args = {
+  params: {
+    styles: 'section-light',
+  },
+  fields: {
+    title: {
+      value: 'Section',
     },
-    fields: {
-      title: {
-        value: 'Section',
-      },
-      content: {
-        value: 'Section Content',
-      },
-      callToActionLink: {
-        value: {
-          href: '/speakers',
-          text: 'View Speakers',
-        },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
       },
     },
   },
 };
 
-export const LightPatternBackground = {
-  render: Template,
-
-  args: {
-    params: {
-      styles: 'section-light section-light-pattern',
+export const LightPatternBackground = Template.bind({});
+LightPatternBackground.args = {
+  params: {
+    styles: 'section-light section-light-pattern',
+  },
+  fields: {
+    title: {
+      value: 'Section',
     },
-    fields: {
-      title: {
-        value: 'Section',
-      },
-      content: {
-        value: 'Section Content',
-      },
-      callToActionLink: {
-        value: {
-          href: '/speakers',
-          text: 'View Speakers',
-        },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
       },
     },
   },
 };
 
-export const Dark = {
-  render: Template,
-
-  args: {
-    params: {
-      styles: 'section-dark',
+export const Dark = Template.bind({});
+Dark.args = {
+  params: {
+    styles: 'section-dark',
+  },
+  fields: {
+    title: {
+      value: 'Section',
     },
-    fields: {
-      title: {
-        value: 'Section',
-      },
-      content: {
-        value: 'Section Content',
-      },
-      callToActionLink: {
-        value: {
-          href: '/speakers',
-          text: 'View Speakers',
-        },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
       },
     },
   },
 };
 
-export const DarkPatternBackground = {
-  render: Template,
-
-  args: {
-    params: {
-      styles: 'section-dark section-dark-pattern',
+export const DarkPatternBackground = Template.bind({});
+DarkPatternBackground.args = {
+  params: {
+    styles: 'section-dark section-dark-pattern',
+  },
+  fields: {
+    title: {
+      value: 'Section',
     },
-    fields: {
-      title: {
-        value: 'Section',
-      },
-      content: {
-        value: 'Section Content',
-      },
-      callToActionLink: {
-        value: {
-          href: '/speakers',
-          text: 'View Speakers',
-        },
+    content: {
+      value: 'Section Content',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
       },
     },
   },
 };
 
-export const FullLeft = {
-  render: Template,
-
-  args: {
-    params: {
-      styles: 'section-full-left',
+export const FullLeft = Template.bind({});
+FullLeft.args = {
+  params: {
+    styles: 'section-full-left',
+  },
+  fields: {
+    title: {
+      value: 'Section',
     },
-    fields: {
-      title: {
-        value: 'Section',
-      },
-      content: {
-        value:
-          'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et quis corporis, amet aspernatur, laudantium ducimus voluptatum suscipit quae unde sapiente harum asperiores aperiam perspiciatis eligendi, ratione maiores modi. Dolore, consectetur modi. Quisquam, vero repellat dolorum voluptas, fugiat odit necessitatibus ut iste corporis, a numquam corrupti eligendi non minima. Sunt, placeat?',
-      },
-      callToActionLink: {
-        value: {
-          href: '/speakers',
-          text: 'View Speakers',
-        },
+    content: {
+      value:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et quis corporis, amet aspernatur, laudantium ducimus voluptatum suscipit quae unde sapiente harum asperiores aperiam perspiciatis eligendi, ratione maiores modi. Dolore, consectetur modi. Quisquam, vero repellat dolorum voluptas, fugiat odit necessitatibus ut iste corporis, a numquam corrupti eligendi non minima. Sunt, placeat?',
+    },
+    callToActionLink: {
+      value: {
+        href: '/speakers',
+        text: 'View Speakers',
       },
     },
   },

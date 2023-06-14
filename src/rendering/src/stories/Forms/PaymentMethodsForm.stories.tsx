@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import PaymentMethodsForm from '../../components/Forms/PaymentMethodsForm';
 
@@ -15,7 +15,11 @@ export default {
       </section>
     ),
   ],
-} as Meta<typeof PaymentMethodsForm>;
+} as ComponentMeta<typeof PaymentMethodsForm>;
+
+const Template: ComponentStory<typeof PaymentMethodsForm> = (args) => (
+  <PaymentMethodsForm {...args} />
+);
 
 const user = {
   ID: 'mockuser',
@@ -32,18 +36,16 @@ const creditCard = {
   ExpirationDate: new Date().toISOString(),
 };
 
-export const Default = {
-  args: {
-    user,
-    creditCard: {},
-    isEditing: false,
-  },
+export const Default = Template.bind({});
+Default.args = {
+  user,
+  creditCard: {},
+  isEditing: false,
 };
 
-export const Editing = {
-  args: {
-    user,
-    creditCard,
-    isEditing: true,
-  },
+export const Editing = Template.bind({});
+Editing.args = {
+  user,
+  creditCard,
+  isEditing: true,
 };

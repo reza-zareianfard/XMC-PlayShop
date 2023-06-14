@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as SponsorsGrid } from '../../components/Sponsors/SponsorsGrid';
 import { Sponsor } from 'src/types/sponsor';
@@ -6,7 +7,9 @@ import { Sponsor } from 'src/types/sponsor';
 export default {
   title: 'Components/Sponsors/SponsorsGrid',
   component: SponsorsGrid,
-} as Meta<typeof SponsorsGrid>;
+} as ComponentMeta<typeof SponsorsGrid>;
+
+const Template: ComponentStory<typeof SponsorsGrid> = (args) => <SponsorsGrid {...args} />;
 
 const fitbit = {
   Name: 'Fitbit',
@@ -40,14 +43,13 @@ const sports = {
   url: '/sponsors/test',
 } as Sponsor;
 
-export const Default = {
-  args: {
-    fields: {
-      items: [fitbit, sports],
-    },
-    rendering: {
-      componentName: 'SponsorsGrid',
-      dataSource: '/sitecore',
-    },
+export const Default = Template.bind({});
+Default.args = {
+  fields: {
+    items: [fitbit, sports],
+  },
+  rendering: {
+    componentName: 'SponsorsGrid',
+    dataSource: '/sitecore',
   },
 };

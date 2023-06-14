@@ -6,7 +6,6 @@ import {
   SPONSOR_SEARCH_RESULT_TYPE,
   VENDOR_SEARCH_RESULT_TYPE,
 } from '../helpers/ContentSearchHelper';
-import { ContentSearchWidgetResponseFacet } from '../interfaces/contentSearch/ContentSearchWidgetResponse';
 
 export const filterOptionsProp = {
   rooms: [
@@ -55,9 +54,8 @@ export const filterOptionsProp = {
   ],
 };
 
-export const facetsProp: ContentSearchWidgetResponseFacet[] = [
-  {
-    name: 'audience',
+export const facetsProp = {
+  audience: {
     label: 'Audience',
     value: [
       {
@@ -87,8 +85,7 @@ export const facetsProp: ContentSearchWidgetResponseFacet[] = [
       },
     ],
   },
-  {
-    name: 'days',
+  days: {
     label: 'Days',
     value: [
       {
@@ -108,8 +105,7 @@ export const facetsProp: ContentSearchWidgetResponseFacet[] = [
       },
     ],
   },
-  {
-    name: 'is_premium',
+  is_premium: {
     label: 'Featured',
     value: [
       {
@@ -124,8 +120,7 @@ export const facetsProp: ContentSearchWidgetResponseFacet[] = [
       },
     ],
   },
-  {
-    name: 'rooms',
+  rooms: {
     label: 'Rooms',
     value: [
       {
@@ -180,8 +175,7 @@ export const facetsProp: ContentSearchWidgetResponseFacet[] = [
       },
     ],
   },
-  {
-    name: 'speakers',
+  speakers: {
     label: 'Speakers',
     value: [
       {
@@ -236,8 +230,7 @@ export const facetsProp: ContentSearchWidgetResponseFacet[] = [
       },
     ],
   },
-  {
-    name: 'sponsors',
+  sponsors: {
     label: 'Sponsors',
     value: [
       {
@@ -282,8 +275,7 @@ export const facetsProp: ContentSearchWidgetResponseFacet[] = [
       },
     ],
   },
-  {
-    name: 'vendors',
+  vendors: {
     label: 'Vendors',
     value: [
       {
@@ -338,7 +330,7 @@ export const facetsProp: ContentSearchWidgetResponseFacet[] = [
       },
     ],
   },
-];
+};
 
 export const filtersProp = [
   {

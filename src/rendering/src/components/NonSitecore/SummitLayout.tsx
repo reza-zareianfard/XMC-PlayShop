@@ -63,16 +63,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
     fields: {
       data: {
         item: {
-          footerLogo: {
-            jsonValue: {
-              value: {
-                src: 'https://playsummit.sitecoresandbox.cloud/api/public/content/c78f4095acc746a98146aaa38f57a04f?v=85bba949&t=web',
-                width: '413',
-                height: '113',
-              },
-            },
-            alt: 'PLAY! Summit long light grey',
-          },
+          footerLogo: {},
         },
         links: {
           displayName: 'Footer',
@@ -87,9 +78,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: 'faFacebookF' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: { href: '' },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                     {
@@ -97,9 +86,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: 'faYoutube' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: { href: '' },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                     {
@@ -107,9 +94,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: 'faTwitter' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: { href: '' },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                     {
@@ -117,9 +102,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: 'faInstagram' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: { href: '' },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                     {
@@ -127,18 +110,36 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: 'faLinkedin' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: { href: '' },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                   ],
                 },
               },
               {
-                displayName: 'Pages',
+                displayName: 'PLAY! Summit',
                 children: {
                   results: [
+                    {
+                      displayName: 'Home',
+                      icon: { value: '' },
+                      title: { value: '' },
+                      field: {
+                        jsonValue: {
+                          value: {
+                            href: '/en',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}',
+                          },
+                        },
+                      },
+                    },
                     {
                       displayName: 'Sessions',
                       icon: { value: '' },
@@ -146,16 +147,15 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       field: {
                         jsonValue: {
                           value: {
-                            class: '',
-                            id: '{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}',
-                            querystring: '',
-                            anchor: '',
-                            target: '',
-                            title: '',
-                            linktype: 'internal',
+                            href: '/en/sessions',
                             text: '',
-                            url: '/PLAY/playwebsite/home/sessions',
-                            href: '/sessions',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{68DC89A4-1B04-59A8-9C4E-3B49D6C61052}',
                           },
                         },
                       },
@@ -167,16 +167,15 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       field: {
                         jsonValue: {
                           value: {
-                            class: '',
-                            id: '{1F4B781B-F2A5-5647-99DF-C0C369162C4D}',
-                            querystring: '',
-                            anchor: '',
-                            target: '',
-                            title: '',
-                            linktype: 'internal',
+                            href: '/en/speakers',
                             text: '',
-                            url: '/PLAY/playwebsite/home/speakers',
-                            href: '/speakers',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{1F4B781B-F2A5-5647-99DF-C0C369162C4D}',
                           },
                         },
                       },
@@ -188,16 +187,15 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       field: {
                         jsonValue: {
                           value: {
-                            class: '',
-                            id: '{774E44E8-0F30-5879-B847-AD233FFB41AA}',
-                            querystring: '',
-                            anchor: '',
-                            target: '',
-                            title: '',
-                            linktype: 'internal',
+                            href: '/en/vendors',
                             text: '',
-                            url: '/PLAY/playwebsite/home/vendors',
-                            href: '/vendors',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{774E44E8-0F30-5879-B847-AD233FFB41AA}',
                           },
                         },
                       },
@@ -209,16 +207,15 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       field: {
                         jsonValue: {
                           value: {
-                            class: '',
-                            id: '{66C99E47-7BBF-52D1-B1D7-4662B850744A}',
-                            querystring: '',
-                            anchor: '',
-                            target: '',
-                            title: '',
-                            linktype: 'internal',
+                            href: '/en/sponsors',
                             text: '',
-                            url: '/PLAY/playwebsite/home/sponsors',
-                            href: '/sponsors',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{66C99E47-7BBF-52D1-B1D7-4662B850744A}',
                           },
                         },
                       },
@@ -230,16 +227,15 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       field: {
                         jsonValue: {
                           value: {
-                            class: '',
-                            id: '{2717574C-48A0-5469-85A8-A332DF71F1E4}',
-                            querystring: '',
-                            anchor: '',
-                            target: '',
-                            title: '',
-                            linktype: 'internal',
+                            href: '/en/about-us',
                             text: '',
-                            url: '/PLAY/playwebsite/home/about-us',
-                            href: '/about-us',
+                            anchor: '',
+                            linktype: 'internal',
+                            class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
+                            id: '{2717574C-48A0-5469-85A8-A332DF71F1E4}',
                           },
                         },
                       },
@@ -251,37 +247,15 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       field: {
                         jsonValue: {
                           value: {
+                            href: '/en/news',
+                            text: '',
+                            anchor: '',
+                            linktype: 'internal',
                             class: '',
+                            title: '',
+                            target: '',
+                            querystring: '',
                             id: '{0E4A63DA-7496-557E-BF80-5BD52255E431}',
-                            querystring: '',
-                            anchor: '',
-                            target: '',
-                            title: '',
-                            linktype: 'internal',
-                            text: '',
-                            url: '/PLAY/playwebsite/home/news',
-                            href: '/news',
-                          },
-                        },
-                      },
-                    },
-                    {
-                      displayName: 'Landing Pages',
-                      icon: { value: '' },
-                      title: { value: '' },
-                      field: {
-                        jsonValue: {
-                          value: {
-                            class: '',
-                            id: '{4D587C56-3717-41CB-936C-5D0412A50B6B}',
-                            querystring: '',
-                            anchor: '',
-                            target: '',
-                            title: '',
-                            linktype: 'internal',
-                            text: '',
-                            url: '/PLAY/playwebsite/home/landing-pages',
-                            href: '/landing-pages',
                           },
                         },
                       },
@@ -298,19 +272,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: '' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: {
-                            text: '',
-                            anchor: '',
-                            linktype: 'internal',
-                            class: '',
-                            title: '',
-                            target: '',
-                            querystring: '',
-                            id: '{A7BDFBDA-D5CC-5388-A039-F262BC768721}',
-                            href: '/tickets',
-                          },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                     {
@@ -318,19 +280,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: '' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: {
-                            text: '',
-                            anchor: '',
-                            linktype: 'internal',
-                            class: '',
-                            title: '',
-                            target: '',
-                            querystring: '',
-                            id: '{6CF37FF6-755C-5B1A-B5EB-63F03481DB4A}',
-                            href: '/sponsors/Become-a-sponsor',
-                          },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                     {
@@ -338,9 +288,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: '' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: { href: '' },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                   ],
@@ -355,9 +303,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: '' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: { href: '' },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                     {
@@ -365,9 +311,7 @@ const SummitLayout = (props: PropsWithChildren): JSX.Element => {
                       icon: { value: '' },
                       title: { value: '' },
                       field: {
-                        jsonValue: {
-                          value: { href: '' },
-                        },
+                        jsonValue: { value: { href: '' } },
                       },
                     },
                   ],

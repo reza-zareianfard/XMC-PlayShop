@@ -1,23 +1,20 @@
 import React from 'react';
-import { StoryFn, Meta } from '@storybook/react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Default as FullImageCTASection } from '../../components/PageContent/FullImageCTASection';
 
 export default {
   title: 'Components/PageContent/FullImageCTASection',
   component: FullImageCTASection,
-} as Meta<typeof FullImageCTASection>;
+} as ComponentMeta<typeof FullImageCTASection>;
 
-const Template: StoryFn<typeof FullImageCTASection> = () => (
+const Template: ComponentStory<typeof FullImageCTASection> = () => (
   <FullImageCTASection rendering={{ componentName: '' }} params={{}} />
 );
 
-export const Default = {
-  render: Template,
-
-  args: {
-    params: {
-      name: 'FullImageCTASection',
-    },
+export const Default = Template.bind({});
+Default.args = {
+  params: {
+    name: 'FullImageCTASection',
   },
 };

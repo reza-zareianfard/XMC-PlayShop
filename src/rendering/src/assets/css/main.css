@@ -32,6 +32,7 @@
 @import './rest.css';
 
 /* 5. Our components */
+@import './components/Base.css';
 
 /* Account */
 @import './components/Account/AccountLayout.css';

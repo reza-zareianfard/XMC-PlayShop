@@ -2,6 +2,10 @@
   @apply max-w-full;
 
   &:not(.promo-columns) {
+    padding: 0 20px;
+
+    @apply lg:px-0;
+
     > .component-content {
       @apply flex flex-col;
       @apply lg:flex-row lg:pb-24;
@@ -63,10 +67,14 @@
 
     .field-promoicon {
       @apply relative;
-      @apply lg:-right-20;
+
+      padding-left: 3rem;
+
+      @apply lg:-right-20 pl-0;
 
       &::before {
-        @apply content-[''] absolute top-10 -bottom-10 -left-16 w-28 bg-yellow z-10;
+        @apply content-[''] absolute top-10 -bottom-10 left-0 w-28 bg-yellow z-10;
+        @apply lg:-left-16;
       }
 
       img {
@@ -78,6 +86,38 @@
     div.promo-text {
       @apply mt-14;
       @apply lg:relative lg:top-24 lg:-left-4 lg:p-14 lg:mt-0 lg:bg-white-light lg:z-30;
+    }
+  }
+
+  &.promo-top {
+    @apply py-0;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .component-content {
+      @apply flex-col;
+
+      .field-promoicon {
+        @apply right-0;
+
+        padding-left: 3rem;
+
+        &::before {
+          @apply left-0;
+        }
+
+        img {
+          @apply relative w-full;
+        }
+      }
+
+      .promo-text {
+        @apply pt-0 pr-0 bg-transparent;
+
+        padding-left: 8.6rem;
+        top: 1rem;
+      }
     }
   }
 

@@ -1,20 +1,23 @@
-import { Meta } from '@storybook/react';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import OrderSummary from '../../components/Payment/OrderSummary';
+import OrderSummary, { OrderSummaryProps } from '../../components/Payment/OrderSummary';
 
 export default {
   title: 'Components/Payment/OrderSummary',
   component: OrderSummary,
-} as Meta<typeof OrderSummary>;
+} as ComponentMeta<typeof OrderSummary>;
 
-export const WithFees = {
-  args: {
-    ticket: '0',
-  },
+const Template: ComponentStory<typeof OrderSummary> = (args?: OrderSummaryProps) => (
+  <OrderSummary {...args} />
+);
+
+export const WithFees = Template.bind({});
+WithFees.args = {
+  ticket: '0',
 };
 
-export const WithoutFees = {
-  args: {
-    ticket: '3',
-  },
+export const WithoutFees = Template.bind({});
+WithoutFees.args = {
+  ticket: '3',
 };
